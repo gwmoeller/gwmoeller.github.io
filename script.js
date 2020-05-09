@@ -49,9 +49,4 @@ $.getJSON(url, function(data){
 			$('#test').html(string);
 		});
 	})
-
-	console.log(obj);
-	console.log(count);
-	console.log(need);
-	console.log(rem)
 });
