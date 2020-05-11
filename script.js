@@ -1,13 +1,21 @@
-var url = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/treasury?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313"
+/*
+	Filename: treasury.js
+	Author: Gage Moeller
+	Topic: JavaScript
+	Description: Grab JSON objects and filter needed materials for treasury
+*/
+
+//Declaration of address to fix github issues
+var url = "https:api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/treasury?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313"
 
 $.getJSON(url, function(data){
 	var obj = [];
-	var count =[];
-	var need = [];
-	var rem = [];
-	var string = [];
-	
-	//grabs item_id's
+    var count =[];
+    var need = [];
+    var rem = [];
+    var string = [];
+    
+    //grabs item_id's
 	$.each(data, function(index, element) {
 		obj.push(element.item_id);
 	});
@@ -42,11 +50,11 @@ $.getJSON(url, function(data){
 	$.each(data, function(index, element) {
 		$.getJSON("https://api.guildwars2.com/v2/items/" + obj[index], function(item){
 			if (rem[index] != 0) {
-				string.push("<b>" + item.name + "</b>" + " <span>" + rem[index] + "</span> " + "<br/>");
+				string.push('<img src="' + item.icon + '">' +"<b>" + item.name + "</b>" + "<span> " + rem[index] + "</span>" + "<br/><br/>");
 			}
 
-			string.sort();
+			//string.sort();
 			$('#test').html(string);
 		});
-	})
+	});
 });
