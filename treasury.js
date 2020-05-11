@@ -43,7 +43,7 @@ $.getJSON(url, function(data){
 	$.each(data, function(index, element) {
 		$.getJSON("https://api.guildwars2.com/v2/items/" + obj[index], function(item){
 			if (rem[index] != 0) {
-				string.push('<img src="' + item.icon + '">' + "<b>" + item.name + "</b>" + " <span>" + rem[index] + "</span> " + "<br/>");
+				string.push('<img src="' + item.icon + '">' + "<b>" + item.name + "</b>" + " <span>" + rem[index] + "</span> " + "<br/><br/>");
 			}
 
 			string.sort();
