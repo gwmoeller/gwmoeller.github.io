@@ -46,7 +46,7 @@ $.getJSON(url, function(data){
 				string.push('<img src="' + item.icon + '">' + "<b>" + item.name + "</b>" + " <span>" + rem[index] + "</span> " + "<br/><br/>");
 			}
 
-			string.sort();
+			//string.sort();
 			$('#test').html(string);
 		});
 	})
