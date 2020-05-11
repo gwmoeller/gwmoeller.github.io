@@ -27,6 +27,20 @@ label {
 }
 
 span {
-	float: right;
-	padding-right: 50%;
+	position :absolute;
+	left:400px;
+}
+
+img {
+	width: 30px;
+
+}
+
+img, b {
+	position: absolute;
+}
+
+b {
+	left: 50px;
+
 }
