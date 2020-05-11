@@ -27,6 +27,6 @@ label {
 }
 
 span {
-	float: right;
-	padding-right: 50%;
+	position:absolute;
+	left: 400px;
 } 
