@@ -1,0 +1,77 @@
+body, html {
+	height: 100%;
+}
+
+footer {
+	text-align: center;
+	color: white;
+	background: #333333;
+	border-top: solid #434343 5px;
+	padding-top: 10px;
+}
+
+.row {
+	margin: 0;
+}
+
+.parallax {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/placeholder.jpg");
+	height: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.hero-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+}
+
+.hero-text h1 {
+	text-align: center;
+}
+
+.navbar-custom {
+	color: white;
+	background-color: #333333;
+}
+
+.fluid-cust {
+	background-color: #333333;
+	color: white;
+	padding-top: 30px;
+	text-align: center;
+	padding-bottom: 30px;
+	border-top: solid #434343 5px;
+	border-bottom: solid #434343 5px;
+}
+
+.container-cust {
+	border: solid #333333 5px;
+	border-radius: 25px;
+	padding: 20px;
+	color: white;
+}
+
+td {
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+	background-color: #f5f5f5;
+}
+
+.item-cust-icon {
+	width: 40px;
+}
+
+.form-reset-cust {
+	width: 100%;
+}

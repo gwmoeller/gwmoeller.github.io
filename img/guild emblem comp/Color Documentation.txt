@@ -1,0 +1,25 @@
+{
+  "id": "32525C62-CE73-EA11-81AC-95DFE50946EB",
+  "name": "Feeders Anonymous",
+  "tag": "FA",
+  "emblem": {
+    "background": {
+      "id": 2,
+      "colors": [
+        93
+      ]
+    },
+    "foreground": {
+      "id": 215,
+      "colors": [
+        584,
+        71
+      ]
+    },
+    "flags": [
+      "FlipBackgroundHorizontal",
+      "FlipForegroundHorizontal",
+      "FlipForegroundVertical"
+    ]
+  }
+}

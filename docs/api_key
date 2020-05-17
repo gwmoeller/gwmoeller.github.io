@@ -1,0 +1,16 @@
+api key list
+
+WIKI >>>>> https://wiki.guildwars2.com/wiki/API:Main <<<<<< WIKI
+
+In a POST request, use the Authorization header field: Authorization: Bearer [api key]. Note: preflight requests are not supported by the API backend.
+In a GET request, use the access_token query parameter: ?access_token=[api key]. This method circumvents the preflight requests of the CORS standard.
+
+Guild key: 32525C62-CE73-EA11-81AC-95DFE50946EB
+
+helpful http requests: 
+https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/treasury?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313
+
+0: {upgrade_id: 156, count: 10}
+1: {upgrade_id: 440, count: 20}
+2: {upgrade_id: 504, count: 30}
+3: {upgrade_id: 756, count: 10}
