@@ -5,28 +5,33 @@
 	Description: Grab JSON objects and filter needed materials for treasury
 */
 
-var url = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/treasury?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313"
+//Declaration of address to fix github issues
+var url = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/treasury?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313";
+var url_2 = "https://api.guildwars2.com/v2/items";
+var url_3 = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/upgrades?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313";
+var url_4 = "https://api.guildwars2.com/v2/guild/upgrades";
 
-$.getJSON(url, function(data){
+$.when(
+	$.getJSON(url),
+	$.getJSON(url_3),
+	$.getJSON(url_4),
+).done(function(data1, data2, data3) {
+
 	var obj = [];
-    var count =[];
-    var need = [];
-    var rem = [];
-    var string = [];
-    var counter = 0;
-    
-    //grabs item_id's
-	$.each(data, function(index, element) {
+	var count = [];
+	var need = [];
+	var rem = [];
+	var string = [];
+
+	$.each(data1[0], function(index, element) {
 		obj.push(element.item_id);
 	});
-	
-	//grabs total desposited
-	$.each(data, function(index, element) {
+
+	$.each(data1[0], function(index, element) {
 		count.push(element.count);
 	});
 
-	//iterates through and grabs need number
-	$.each(data, function(index, element) {
+	$.each(data1[0], function(index, element) {
 		$.each(element.needed_by, function(v, g) {
 			var num = need[index]
 			if (v > 0) {
@@ -40,27 +45,17 @@ $.getJSON(url, function(data){
 		});
 	});
 
-	//math to see which item has a remaining balance
-	$.each(data, function(index, element) {
+	$.each(data1[0], function(index, element) {
 		rem.push(need[index] - count[index]);
-		if(rem[index] !=0) {
-			counter += 1;
-		}
 	});
 
-	var row = Math.ceil(counter/3);
-
-	//creates string of items with a remaining balance strings
-	//get item names
-	$.each(data, function(index, element) {
-		$.getJSON("https://api.guildwars2.com/v2/items/" + obj[index], function(item){
-			if (rem[index] != 0) {
-				string.push('<tr><td><img src="' + item.icon + '" class="item-cust-icon"></td>' +"<td><b>" + item.name + "</b></td>" + "<td>" + rem[index] + "</td></tr>");
+	$.each(data1[0], function(index, element) {
+		$.getJSON(url_2 + "/" + obj[index], function(item) {
+			if(rem[index] != 0) {
+				string.push("<div class='card text-center'> <img src='" + item.icon + "' class='card-img-top' title='" + item.name + "'> <div class='card-body'><p class='card-text'>" + rem[index]+ "</p></div></div>");
 			}
 
-			$('#cust-item-list-1').html(string.slice(0, row));
-			$('#cust-item-list-2').html(string.slice(row, row*2));
-			$('#cust-item-list-3').html(string.slice(row*2, string.length));
-		});
-	});
+			$('#treasury-list').html(string);
+		})
+	})
 });
