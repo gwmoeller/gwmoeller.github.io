@@ -23,6 +23,34 @@ footer {
 	background-size: cover;
 }
 
+.parallax-2 {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/classes/reaper.jpg");
+	height: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.parallax-3 {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/classes/member.jpg");
+	height: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.parallax-4 {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/classes/berserker.jpg");
+	height: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
 .hero-text {
 	position: absolute;
 	top: 50%;
@@ -55,6 +83,7 @@ footer {
 	border-radius: 25px;
 	padding: 20px;
 	color: white;
+	background: rgba(67, 67, 67, 0.5);
 }
 
 td {
@@ -74,4 +103,24 @@ tr:hover {
 
 .form-reset-cust {
 	width: 100%;
+}
+
+.card {
+	display: inline-block;
+	margin: 5px;
+}
+
+.card-img-top {
+	height: 60px;
+	width: 60px;
+	padding: 0px;
+}
+
+.card-text {
+	font-size: smaller;
+	padding: 0px;
+}
+
+.card-body {
+	padding: 0px;
 }
