@@ -57,7 +57,6 @@ $.when(
 			while(element != data2[0][count_1].item_id) {
 				count_1 += 1
 			}
-			console.log(index)
 
 			if (rem[index] != 0) {
 				treasury_string.push("<div class='card text-center bg-dark cust-card' onclick=\"imageSearch('" + data2[0][count_1].name + "')\" >  <img src='" + data2[0][count_1].icon + "' class='card-img-top' title='" + data2[0][count_1].name + "'> <div class='card-body'><p class='card-text'>" + rem[index] + "</p></div></div>");
