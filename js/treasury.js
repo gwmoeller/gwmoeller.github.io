@@ -1,8 +1,8 @@
 /*
-	Filename: test.js
+	Filename: treasury.js
 	Author: Gage Moeller
 	Topic: JavaScript
-	Description: Empty template for testing and creating on a new slate.
+	Description: Grab JSON objects and filter needed materials for treasury
 */
 
 var url = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/treasury?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313";
@@ -57,7 +57,6 @@ $.when(
 			while(element != data2[0][count_1].item_id) {
 				count_1 += 1
 			}
-
 			if (rem[index] != 0) {
 				treasury_string.push("<div class='card text-center bg-dark cust-card' onclick=\"imageSearch('" + data2[0][count_1].name + "')\" >  <img src='" + data2[0][count_1].icon + "' class='card-img-top' title='" + data2[0][count_1].name + "'> <div class='card-body'><p class='card-text'>" + rem[index] + "</p></div></div>");
 			}
@@ -83,8 +82,9 @@ $.when(
 				$.each(element.costs, function(v, g) {
 					if(g.item_id == undefined || g.item_id == 70701) {
 						currency.push("<div class='card text-center bg-dark'> <img src='https://wiki.guildwars2.com/images/2/23/Aetherium.png' class='card-img-top' title='" + g.name + "'> <div class='card-body'><p class='card-text'>" + g.count + "</p></div></div>");
-						if(g.item_id == undefined) {
+						if(g.item_id == undefined && count_2 != upgrade.length) {
 							upgrade_string.push("<br><br><hr class='break'>")
+
 						}
 					}
 					else {
