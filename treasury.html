@@ -1,27 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 	<head>
-		<meta char="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width", intial-scale=1.0">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/main.css">
-		<title>Home | Feeder Anonymous</title>
-		
-		<!-- 
-			Filename: index.html
-			Author: Enter Author
-			Topic: Enter Topic
-			Description: Enter Description
+		<link rel="icon" type="image/png" href="img/fa-emb.png">
+		<title>Treasury | Feeders Anonymous</title>
 
-			Check members.html in guildwars to see how to get footer to stick to bottom
-			container style="height: 100%"
+		<!-- 
+			Filename: treasury.html
+			Author: Gage Moeller
+			Topic: Treasury Requested Mats
+			Description: Front end of API request to pull list of needed materials.
 		-->
 
 	</head>
-
-	<body style="background-color: #474747">
+	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-  			<a class="navbar-brand" href="index.html"><img src="img/fa-emb.png" style="width: 50px"></a>
+  			<a class="navbar-brand" href="index.html"><img src="../Guild Wars 2/img/fa-emb.png" style="width: 50px"></a>
   			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     			<span class="navbar-toggler-icon"></span>
  			</button>
@@ -50,9 +46,8 @@
 	    		</form>
 	  		</div>
 		</nav>
-		
-		<br>
-
+		<div class="container" style="min-height: 100%">
+			<br>
 			<h1 class="treasury-header-cust">Treasury Items Needed</h1><br>
 			<div class="container cust-met">
 				<div id="treasury-list"></div>
@@ -60,12 +55,12 @@
 
 			<br>
 
-			<h1 class="treasury-header-cust">Available Guild Upgrades</h1>
+			<h1 class="treasury-header-cust">Available Guild Upgrades</h1><br>
 			<div class="container">
 				<div id="upgrade-list"></div>
 			</div>
-
-		<br>
+			<br>
+		</div>
 
 		<footer>
 			<div class="row">
