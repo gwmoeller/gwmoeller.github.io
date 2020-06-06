@@ -18,6 +18,7 @@ $.when(
 	$.getJSON(url_4),
 	).done(function(data1, data2, data3, data4) {
 
+		// establish variables to be used throughout the script
 		var obj = [];
 		var count = [];
 		var need = [];
@@ -28,7 +29,10 @@ $.when(
 		var currency = [];
 		var evaluation = [];
 		var checker = [];
+		var ready_list = [];
+		var top = [];
 
+		// stores item ids and amount turned in into arrays and checks for remainder. Also grabs upgrages available to guild
 		$.each(data1[0], function(index, element) {
 			obj.push(element.item_id);
 			count.push(element.count);
@@ -52,6 +56,7 @@ $.when(
 			rem.push(need[index] - count[index]);
 		});	
 
+		// stores string of needed items
 		$.each(obj, function(index, element) {
 			var count_1 = 0;
 			while(element != data2[0][count_1].item_id) {
@@ -62,13 +67,17 @@ $.when(
 			}
 		})
 
+		// prints treasuyr_string(array) to html
 		$('#treasury-list').html(treasury_string);
 
+		// sorts upgrade for corrective data computation
 		upgrade.sort(function(a, b){return a- b});	
 
+		// establishment of additional iteration variables
 		var count_2 = 0;
 		var count_3 = 0;
 
+		// responsible for pringting entirety of available upgrades checking and checking availability for upgrade
 		$.each(data4[0], function(index, element) {
 			var check = true
 			var holder = 0;
@@ -109,7 +118,7 @@ $.when(
 								if(holder == (element.costs.length - 2)) {
 									if(check == true) {
 										checker.push("<div class='card text-center bg-success cust-check'><div class='card-body cust-check'><p class='card-text cust-check'>" + "Ready to Upgrade" + "</p></div></div>")
-										
+										top.push(element.costs.length - 2);
 									}
 									else {
 										checker.push("<div class='card text-center bg-danger cust-check'><div class='card-body cust-check'><p class='card-text cust-check'>" + "Not Ready to Upgrade" + "</p></div></div>")
@@ -122,18 +131,49 @@ $.when(
 			}
 		});
 
+		// establihsment of additional iteration variables and array
 		var remap = 0;
+
+		var count_4 = 0;
+		var remove = [];
 		
+		// responsible for removing "placeholder" with correct upgrade block desginated in the previous block of code and storing ready upgrades to differnt array.
 		$.each(upgrade_string, function(index, element) {
 			if(element == "placeholder") {
 				upgrade_string[index] = checker[remap]
 				remap += 1;
 			}
-		});
 
+			if(upgrade_string[index].includes("Ready to Upgrade") && !upgrade_string[index].includes("Not Ready to Upgrade")) {
+				ready_list.push(upgrade_string[index-1])
+				//remove.push(index - 1)
+
+				for(var i=index; i <=(index+top[count_4]); i++) {
+					ready_list.push(upgrade_string[i])
+				}
+
+				ready_list.push(upgrade_string[i]);
+				remove.push(i - index + 2);
+				remove.push(index - 2 )	;
+				count_4 +=1;
+			}
+		});	
+
+		// removes ready upgrades from original array
+		for(var i=0; i < count_4; i++) {
+			upgrade_string.splice(remove.pop(), remove.pop());
+		}
+		
+		// error check for hr parameter
+		if (ready_list.pop() == undefined) {
+			ready_list.push("<br><br><hr class='break'>")
+		}
+
+		$('#ready-list').html(ready_list);
 		$('#upgrade-list').html(upgrade_string);
 	});
 
+	// click images will respond with wiki page
 	function imageSearch(val) {
 		window.open("https://wiki.guildwars2.com/wiki/?search=" + val);
 	}
