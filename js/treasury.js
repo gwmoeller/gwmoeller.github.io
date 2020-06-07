@@ -137,7 +137,6 @@ $.when(
 								count_3 += 1;
 								holder += 1;
 								if(holder == (element.costs.length - 2)) {
-									console.log(element.costs[0])
 									if(check == true && element.costs[holder + 1].count <= data5[0].aetherium && element.costs[0].count <= data5[0].favor) {
 										checker.push("<div class='card text-center bg-success cust-check'><div class='card-body cust-check'><p class='card-text cust-check'>" + "Ready to Upgrade" + "</p></div></div>")
 										top.push(element.costs.length);
