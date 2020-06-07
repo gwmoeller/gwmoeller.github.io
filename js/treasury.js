@@ -19,7 +19,13 @@ $.when(
 	$.getJSON(url_4),
 	$.getJSON(url_5)
 	).done(function(data1, data2, data3, data4, data5) {
-
+		
+		$.getJSON(url, function(data_check) {
+			if(data1[0].length != data_check.length) {
+				location.reload();
+			}
+		});
+		
 		// establish variables to be used throughout the script
 		var obj = [];
 		var count = [];
