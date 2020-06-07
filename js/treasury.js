@@ -9,6 +9,7 @@ var url = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE5094
 var url_2 = "https://gwmoeller.github.io/probotafessor/json/item_list.json"
 var url_3 = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/upgrades?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313";
 var url_4 = "https://gwmoeller.github.io/probotafessor/json/guild_upgrades.json";
+var url_5 = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313"
 
 
 $.when(
@@ -16,7 +17,8 @@ $.when(
 	$.getJSON(url_2),
 	$.getJSON(url_3),
 	$.getJSON(url_4),
-	).done(function(data1, data2, data3, data4) {
+	$.getJSON(url_5)
+	).done(function(data1, data2, data3, data4, data5) {
 
 		// establish variables to be used throughout the script
 		var obj = [];
@@ -71,7 +73,7 @@ $.when(
 		$('#treasury-list').html(treasury_string);
 
 		// sorts upgrade for corrective data computation
-		upgrade.sort(function(a, b){return a- b});	
+		upgrade.sort(function(a, b){return a- b});
 
 		// establishment of additional iteration variables
 		var count_2 = 0;
@@ -79,8 +81,8 @@ $.when(
 
 		// responsible for pringting entirety of available upgrades checking and checking availability for upgrade
 		$.each(data4[0], function(index, element) {
-			var check = true
 			var holder = 0;
+			var check = true;
 
 			if(element.id == upgrade[count_2]) {
 				upgrade_string.push("<br><img class='upgrade-icon' src='" + element.icon + "'><h2 class='upgrade-title-cust'>" + element.name + "<h2>");
@@ -89,14 +91,28 @@ $.when(
 				count_2 += 1;
 
 				$.each(element.costs, function(v, g) {
-					if(g.item_id == undefined || g.item_id == 70701) {
-						currency.push("<div class='card text-center bg-dark'> <img src='https://wiki.guildwars2.com/images/2/23/Aetherium.png' class='card-img-top' title='" + g.name + "'> <div class='card-body'><p class='card-text'>" + g.count + "</p></div></div>");
+					if(g.item_id == undefined) {
+						if(g.count <= data5[0].aetherium) {
+							upgrade_string.push("<div class='card text-center bg-dark'> <img src='https://wiki.guildwars2.com/images/2/23/Aetherium.png' class='card-img-top' title='" + g.name + "'> <div class='card-body'><p class='card-text'>" + g.count + " / " + g.count + "</p></div></div>");
+						}
+						else {
+							upgrade_string.push("<div class='card text-center bg-dark'> <img src='https://wiki.guildwars2.com/images/2/23/Aetherium.png' class='card-img-top' title='" + g.name + "'> <div class='card-body'><p class='card-text'>" + data5[0].aetherium + " / " + g.count + "</p></div></div>");
+						}
+
 						if(g.item_id == undefined && count_2 != upgrade.length) {
 							upgrade_string.push("<br><br><hr class='break'>")
-
+						}
+					}
+					else if(g.item_id == 70701) {
+						if(g.count <= data5[0].favor) {
+							upgrade_string.push("<div class='card text-center bg-dark'> <img src='https://render.guildwars2.com/file/F3612F4D754A3FFCDB3C7BF56ED8A009AC4FA7FD/543926.png' class='card-img-top' title='" + g.name + "'> <div class='card-body'><p class='card-text'>" + g.count + " / " + g.count + "</p></div></div>");
+						}
+						else {
+							upgrade_string.push("<div class='card text-center bg-dark'> <img src='https://render.guildwars2.com/file/F3612F4D754A3FFCDB3C7BF56ED8A009AC4FA7FD/543926.png' class='card-img-top' title='" + g.name + "'> <div class='card-body'><p class='card-text'>" + data5[0].favor + " / " + g.count + "</p></div></div>");
 						}
 					}
 					else {
+
 						$.each(data1[0], function(n, e) {
 							if(g.item_id == e.item_id) {
 								if(g.count <= e.count) {
@@ -114,11 +130,11 @@ $.when(
 								upgrade_string.push("<div class='card text-center bg-dark cust-card' onclick=\"imageSearch('" + z.name + "')\"> <img src='" + z.icon + "' class='card-img-top' title='" + z.name + "'> <div class='card-body'><p class='card-text'>" + evaluation[count_3] + "</p></div>");
 								count_3 += 1;
 								holder += 1;
-								
 								if(holder == (element.costs.length - 2)) {
-									if(check == true) {
+									console.log(element.costs[0])
+									if(check == true && element.costs[holder + 1].count <= data5[0].aetherium && element.costs[0].count <= data5[0].favor) {
 										checker.push("<div class='card text-center bg-success cust-check'><div class='card-body cust-check'><p class='card-text cust-check'>" + "Ready to Upgrade" + "</p></div></div>")
-										top.push(element.costs.length - 2);
+										top.push(element.costs.length);
 									}
 									else {
 										checker.push("<div class='card text-center bg-danger cust-check'><div class='card-body cust-check'><p class='card-text cust-check'>" + "Not Ready to Upgrade" + "</p></div></div>")
@@ -146,7 +162,6 @@ $.when(
 
 			if(upgrade_string[index].includes("Ready to Upgrade") && !upgrade_string[index].includes("Not Ready to Upgrade")) {
 				ready_list.push(upgrade_string[index-1])
-				//remove.push(index - 1)
 
 				for(var i=index; i <=(index+top[count_4]); i++) {
 					ready_list.push(upgrade_string[i])
@@ -154,19 +169,14 @@ $.when(
 
 				ready_list.push(upgrade_string[i]);
 				remove.push(i - index + 2);
-				remove.push(index - 2 )	;
-				count_4 +=1;
+				remove.push(index - 2)	;
+				count_4 += 1;
 			}
 		});	
 
 		// removes ready upgrades from original array
 		for(var i=0; i < count_4; i++) {
 			upgrade_string.splice(remove.pop(), remove.pop());
-		}
-		
-		// error check for hr parameter
-		if (ready_list.pop() == undefined) {
-			ready_list.push("<br><br><hr class='break'>")
 		}
 
 		$('#ready-list').html(ready_list);
