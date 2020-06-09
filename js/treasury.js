@@ -21,7 +21,7 @@ $.when(
 	).done(function(data1, data2, data3, data4, data5) {
 		
 		$.getJSON(url, function(data_check) {
-			if(data1[0].length > data_check.length) {
+			if(data1[0].length != data_check.length) {
 				location.reload();
 			}
 		});
