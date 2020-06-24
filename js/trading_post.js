@@ -109,7 +109,7 @@ function showOutput() {
 			document.getElementById(final[i]).value = "";
 		}
 		else {
-			document.getElementById(final[i]). value = Math.round(arguments[i]);
+			document.getElementById(final[i]). value = Math.floor(arguments[i]);
 		}
 	}
 }
