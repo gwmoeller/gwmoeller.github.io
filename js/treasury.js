@@ -5,13 +5,13 @@
 	Description: Grab JSON objects and filter needed materials for treasury
 */
 
-var url = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/treasury?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313";
+var url = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/treasury?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313&v=latest";
 var url_2 = "https://gwmoeller.github.io/probotafessor/json/item_list.json"
-var url_3 = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/upgrades?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313";
+var url_3 = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/upgrades?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313&v=latest";
 var url_4 = "https://gwmoeller.github.io/probotafessor/json/guild_upgrades.json";
-var url_5 = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313"
+var url_5 = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313&v=latest"
 
-
+function start(){
 $.when(
 	$.getJSON(url),
 	$.getJSON(url_2),
@@ -19,13 +19,21 @@ $.when(
 	$.getJSON(url_4),
 	$.getJSON(url_5)
 	).done(function(data1, data2, data3, data4, data5) {
-		
+
 		$.getJSON(url, function(data_check) {
 			if(data1[0].length != data_check.length) {
-				location.reload();
+				start();
+			}
+			else {
+				var element_class = document.getElementById("blocker");
+				element_class.classList.remove("blocker");
 			}
 		});
-		
+
+
+
+		$('#guild-info').html("<table id=\"guild-table\"><tr><th>Guild Level: </th><td>" + data5[0].level + "</td></tr><tr><th>Message: </th><td> " + data5[0].motd + "</td></tr><tr><th>Aetherium: </th><td>" + data5[0].aetherium + "</td></tr><tr><th>Favor: </th><td>" + data5[0].favor + "<td></tr>")
+
 		// establish variables to be used throughout the script
 		var obj = [];
 		var count = [];
@@ -91,7 +99,7 @@ $.when(
 			var check = true;
 
 			if(element.id == upgrade[count_2]) {
-				upgrade_string.push("<br><img class='upgrade-icon' src='" + element.icon + "'><h2 class='upgrade-title-cust'>" + element.name + "<h2>");
+				upgrade_string.push("<div class=\"upgrade-option\"><img class='upgrade-icon' src='" + element.icon + "'><h4 class='upgrade-title-cust'>" + element.name + "</h4></div>");
 				upgrade_string.push("placeholder");
 
 				count_2 += 1;
@@ -106,7 +114,7 @@ $.when(
 						}
 
 						if(g.item_id == undefined && count_2 != upgrade.length) {
-							upgrade_string.push("<br><br><hr class='break'>")
+							upgrade_string.push("<br>")
 						}
 					}
 					else if(g.item_id == 70701) {
@@ -152,7 +160,7 @@ $.when(
 			}
 		});
 
-		// establihsment of additional iteration variables and array
+		// establishment of additional iteration variables and array
 		var remap = 0;
 
 		var count_4 = 0;
@@ -186,9 +194,13 @@ $.when(
 
 		$('#ready-list').html(ready_list);
 		$('#upgrade-list').html(upgrade_string);
-	});
 
+
+	});
+}
 	// click images will respond with wiki page
 	function imageSearch(val) {
 		window.open("https://wiki.guildwars2.com/wiki/?search=" + val);
 	}
+
+window.onlooad=start()
