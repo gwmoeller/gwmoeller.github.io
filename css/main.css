@@ -92,7 +92,8 @@ footer {
 	color: white;
 	background: #333333;
 	padding: 15px;
-	box-shadow: 5px 10px 10px black; 
+	box-shadow: 5px 10px 10px black;
+	border-top: 10px solid #111111;
 }
 
 .item-cust-icon {
@@ -134,12 +135,17 @@ footer {
 	display: inline-block;
 	padding-left: 10px;
 	color: white;
+	padding-bottom: 10px;
 }
 
 .upgrade-icon {
 	width: 50px;
 	padding-left: 5px;
 	float: left;
+}
+
+.upgrade-option {
+	margin-top: 30px;
 }
 
 .cust-check {
@@ -158,10 +164,36 @@ footer {
 @media (min-width: 1200px) {
     .container{
         max-width: 1500px;
-    }
+    }g
 }
 
 .container {
 	background-color: #1e1e1e;
 	color: white;
+}
+
+.blocker {
+	visibility: hidden;
+}
+
+#guild-table th, td {
+	padding: 15px;
+}
+
+hr {
+	visibility: hidden;
+}
+
+/* WvW LIVE MAP SECTION BELOW ONLY!!!! */
+
+.Blue {
+	background-color: blue;
+}
+
+.Red {
+	background-color: red;
+}
+
+.Green {
+	background-color: green;
 }
