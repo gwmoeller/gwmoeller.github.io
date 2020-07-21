@@ -80,6 +80,7 @@ footer {
 	padding: 10px;
 }
 
+
 .container-cust {
 	border: solid #333333 5px;
 	border-radius: 15px;
@@ -102,6 +103,12 @@ footer {
 
 .form-reset-cust {
 	width: 100%;
+}
+
+.clear-history {
+	float: right;
+	display: inline-block;
+	width: 50%;
 }
 
 .card {
@@ -178,10 +185,6 @@ footer {
 
 #guild-table th, td {
 	padding: 15px;
-}
-
-hr {
-	visibility: hidden;
 }
 
 /* WvW LIVE MAP SECTION BELOW ONLY!!!! */
