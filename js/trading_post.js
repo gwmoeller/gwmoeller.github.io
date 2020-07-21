@@ -5,9 +5,10 @@
 	Description: Function to complete simplisitic calculations 
 */
 
-/* Declaration of gloabl variables needed in different functions  */
+/* Declaration of global variables needed in different functions  */
 var currency = [];
 var label = ['bgold', 'bsilver', 'bcopper', 'quantity1', 'sgold', 'ssilver', 'scopper', 'quantity2'];
+var hString = "";
 
 /* Gets value from form and checks to make sure all inputs are valid to the scheme desired.
 	Checks input to ensure whole number shows on user screen. If input fails, resets user screen  */
@@ -26,7 +27,7 @@ function getValue() {
 			value is set to 0 for further computation. */
 		if(isNaN(currency[i])) {
 			if(i == 3 || i == 7) {
-				document.getElementById(label[i]).value = 1;
+				document.getElementById(label[i]).value = "";
 				currency[i] = 1;
 			}
 			else {
@@ -109,10 +110,56 @@ function showOutput() {
 			document.getElementById(final[i]).value = "";
 		}
 		else {
-			document.getElementById(final[i]). value = Math.floor(arguments[i]);
+			if(arguments[i] > 0) {
+				document.getElementById(final[i]).value = Math.floor(arguments[i]);
+			}
+			else {
+				document.getElementById(final[i]).value = Math.ceil(arguments[i]);
+			}
 		}
 	}
+
+}
+
+function showHistory() {
+
+	var currim = ["<img src=\"img/currency/gold_coin.png\">", "<img src=\"img/currency/silver_coin.png\">", "<img src=\"img/currency/copper_coin.png\">"]
+	var blabel = ['bgold', 'bsilver', 'bcopper'];
+	var slabel = ['sgold', 'scopper', 'scopper'];
+	var label = ['pgold', 'psilver', 'pcopper'];
+
+	var buying = [0, 0, 0];
+	var selling = [0, 0, 0];
+	var history = [0, 0, 0];
+
+	for(var i=0; i<3; i++) {
+		buying[i] = document.getElementById(blabel[i]).value;
+		selling[i] = document.getElementById(slabel[i]).value;
+		history[i] = document.getElementById(label[i]).value;
+	}
+	
+	for(var i=0; i<3; i++) {
+		if(history[i] == "") {
+			history[i] = 0;
+		}
+		
+		if(buying[i] == "") {
+			buying[i] = 0;
+		}
+		
+		if(selling[i] == "") {
+			selling[i] = 0;
+		}
+	}
+
+	hString = "<p><b>Buying: </b>" + buying[0] + currim[0] + " " + buying[1] + currim[1] + " " + buying[2] + currim[2] + "&nbsp  &nbsp <b>Selling: </b>" + selling[0] + currim[0] + " " + selling[1] + currim[1] + " " + selling[2] + currim[2] + " &nbsp  &nbsp<b>Profit/Loss: </b>" + history[0] + currim[0] + " " + history[1] + currim[1] + " " + history[2] + currim[2] + hString + "</p>"
+	document.getElementById('history').innerHTML = hString;
+}
+
+function clearHistory() {
+	hString = "";
+	document.getElementById('history').innerHTML = "";
 }
 
 /* event trigger */
-$('.money').keyup(getValue); 
+$('.money').keyup(getValue);
