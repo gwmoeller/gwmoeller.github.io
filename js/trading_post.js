@@ -96,7 +96,7 @@ function getTotal() {
 			total = 0;
 		}
 	}
-	
+
 	if(gold == undefined) {
 		gold = 0;
 	}
@@ -108,7 +108,7 @@ function getTotal() {
 	if(copper == undefined) {
 		copper = 0;
 	}
-
+	
 	showOutput(gold, silver, copper);
 }
 
@@ -146,7 +146,9 @@ function showHistory() {
 
 	for(var i=0; i<3; i++) {
 		buying[i] = document.getElementById(blabel[i]).value;
+		var q1 = document.getElementById('quantity1').value;
 		selling[i] = document.getElementById(slabel[i]).value;
+		var q2 = document.getElementById('quantity2').value;
 		history[i] = document.getElementById(label[i]).value;
 	}
 	
@@ -164,7 +166,7 @@ function showHistory() {
 		}
 	}
 
-	hString = "<p><b>Buying: </b>" + buying[0] + currim[0] + " " + buying[1] + currim[1] + " " + buying[2] + currim[2] + "&nbsp  &nbsp <b>Selling: </b>" + selling[0] + currim[0] + " " + selling[1] + currim[1] + " " + selling[2] + currim[2] + " &nbsp  &nbsp<b>Profit/Loss: </b>" + history[0] + currim[0] + " " + history[1] + currim[1] + " " + history[2] + currim[2] + hString + "</p>"
+	hString = "<p><b>Buying</b>" + "[" + q1 +"]: " + buying[0] + currim[0] + " " + buying[1] + currim[1] + " " + buying[2] + currim[2] + "&nbsp  &nbsp <b>Selling</b>[" + q2 + "]: " + selling[0] + currim[0] + " " + selling[1] + currim[1] + " " + selling[2] + currim[2] + " &nbsp  &nbsp<b>Profit/Loss: </b>" + history[0] + currim[0] + " " + history[1] + currim[1] + " " + history[2] + currim[2] + hString + "</p>"
 	document.getElementById('history').innerHTML = hString;
 }
 
