@@ -96,6 +96,18 @@ function getTotal() {
 			total = 0;
 		}
 	}
+	
+	if(gold == undefined) {
+		gold = 0;
+	}
+	
+	if(silver == undefined) {
+		silver = 0;
+	}
+	
+	if(copper == undefined) {
+		copper = 0;
+	}
 
 	showOutput(gold, silver, copper);
 }
