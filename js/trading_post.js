@@ -137,7 +137,7 @@ function showHistory() {
 
 	var currim = ["<img src=\"img/currency/gold_coin.png\">", "<img src=\"img/currency/silver_coin.png\">", "<img src=\"img/currency/copper_coin.png\">"]
 	var blabel = ['bgold', 'bsilver', 'bcopper'];
-	var slabel = ['sgold', 'scopper', 'scopper'];
+	var slabel = ['sgold', 'ssilver', 'scopper'];
 	var label = ['pgold', 'psilver', 'pcopper'];
 
 	var buying = [0, 0, 0];
