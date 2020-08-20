@@ -7,8 +7,8 @@
 	https://api.guildwars2.com/v2/wvw/matches?world=1002 --> borlis pass world match
 */
 
-url = "http://api.guildwars2.com/v2/wvw/objectives";
-url2 = "http://api.guildwars2.com/v2/wvw/matches?world=1002"
+url = "https://api.guildwars2.com/v2/wvw/objectives";
+url2 = "https://api.guildwars2.com/v2/wvw/matches?world=1002"
 var built = false;
 var count = 0;
 
