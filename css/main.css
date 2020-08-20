@@ -63,6 +63,8 @@ footer {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	color: white;
+	background: rgba(17, 17, 17, 0.5);
+	padding: 20px;
 }
 
 .hero-text h1 {
