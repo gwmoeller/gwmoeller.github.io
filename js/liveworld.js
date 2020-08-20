@@ -89,7 +89,7 @@ function getObjective(objective_id, color, picture, last_flipped, guild_id,) {
  		printString(objective_id, string)
  	}
  	else {
- 		$.getJSON(("http://api.guildwars2.com/v2/guild/" + guild_id), function(data2) {
+ 		$.getJSON(("https://api.guildwars2.com/v2/guild/" + guild_id), function(data2) {
  			var string = "<img style='width: 20px' class='" + color + "' src='" + picture + "'> <p id=\"info\">" + " [" + data2.tag + "] " + "</p>";
  			printString(objective_id, string);
  		});
