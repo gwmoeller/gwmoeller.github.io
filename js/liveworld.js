@@ -217,6 +217,24 @@ function placeObj() {
 	})
 }
 
+/*
+	Toggles Banner for viewing (helps with phone viewing to get that sucker outta the way)
+*/
+function toggleHero(value) {
+	if(value == "0") {
+		$('#collapse-hero').attr('value', '1');
+		$('#collapse-hero').html('Show Banner');
+		$(".hero-text2 > h1, h4").css({"opacity": "0", "transition": "all .5s ease-out"});
+		$("#collapse-hero").animate({left: '0px'});
+	}
+	else {
+		$('#collapse-hero').attr('value', '0');
+		$('#collapse-hero').html('Hide Banner');
+		$(".hero-text2 > h1, h4").css({"opacity": "1", "transition": "all .5s ease-out"});
+		$("#collapse-hero").animate({left: '70%'});
+	}
+}
+
 window.onresize = placeObj;
 window.onload=getObjectives();
 setInterval(liveFunction,10000);
