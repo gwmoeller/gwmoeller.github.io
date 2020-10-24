@@ -17,12 +17,22 @@ input:read-only {
 }
 
 .row {
-	width: 100%;
+	margin: 0px;
 }
 
 .row-cust {
-	padding-left: 2%;
+	margin-left: auto;
+	margin-right: auto;
 }
+
+@media (max-width: 1200px) {
+    .row-cust{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }g
+}
+
 
 .navbar-custom {
 	color: white;
@@ -47,6 +57,42 @@ input:read-only {
 
 .hero-text h1 {
 	text-align: center;
+}
+
+.hero-text2 {
+	width: 30%;
+	top: 10%;
+	left: 5%;
+	position: absolute;
+	color: white;
+	z-index: 1;
+	padding: 10px;
+}
+
+@media (max-width: 900px) {
+	.hero-text2 {
+		width: 80%;
+	}
+}
+
+.hero-text {
+	height: 100%;
+	margin: 0;
+}
+
+
+#collapse-hero {
+	position: relative;
+	top: 20px;
+	left: 70%;
+	color: white;
+	background-color: #000000;
+	opacity: 0.4;
+	border: none;
+	outline: none;
+	font-size: smaller;
+	z-index: 99;
+	margin: 10px;
 }
 
 /* START OF MEMBER CSS*/
@@ -230,6 +276,17 @@ input[type=file] {
 	background-color: #111111;
 }
 
+@media screen and (max-width: 900px) {
+	.item-search {
+		width: 100%;
+	}
+
+	.treasury-media-cust {
+		background-color: #000000;
+		height: 120px;
+	}
+}
+
 input:focus {
 	color: white !important;
 }
@@ -285,7 +342,8 @@ input:focus {
 	height: 50px;
 	color: white;
 	padding-right: 10px;
-	border-radius: 0px 5px 0px 0px
+	border-radius: 0px 5px 0px 0px;
+	overflow: hidden;
 }
 
 .upgrade-icon {
@@ -380,27 +438,6 @@ input:focus {
   background-size: cover;
   position: relative;
   overflow: hidden;
-}
-
-.hero-text2 {
-	width: 30%;
-	top: 10%;
-	left: 5%;
-	position: absolute;
-	color: white;
-	z-index: 1;
-	padding: 10px;
-}
-
-@media (max-width: 900px) {
-	.hero-text2 {
-		width: 80%;
-	}
-}
-
-.hero-text {
-	height: 100%;
-	margin: 0;
 }
 
 #guild-tag {
