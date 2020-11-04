@@ -33,7 +33,6 @@ input:read-only {
     }g
 }
 
-
 .navbar-custom {
 	color: white;
 	background-color: #000000;
@@ -152,7 +151,7 @@ input:read-only {
 }
 
 #block-cust h5 {
-	background-color: #111111
+	background-color: #111111;
 	width: 100%;
 	color: white;
 }
@@ -348,7 +347,7 @@ input:focus {
 
 .upgrade-icon {
 	width: 50px;
-	padding-left: 5px 0px 0px 0px;
+	padding-left: 5px;
 	float: left;
 }
 
