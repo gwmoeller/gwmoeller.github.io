@@ -79,14 +79,21 @@ function liveFunction() {
 				}
 			}
 		})
-
+		
+		// Builds legend to identify teams and ensures that Borlis Pass will always be presented, whether they are the main
+		// server world or not.
 		if(built == false) {
 			var worldStr = "";
 			var legend = "";
 
-			$.each(data1.worlds, function(index, element) {
-				worldStr += element + ",";
-			})
+			$.each(data1.all_worlds, function(index, element) {
+				if(element.includes(1002)) {
+					worldStr += 1002 + ",";
+				}
+				else {
+					worldStr += element[1] + ",";
+				}
+			});
 
 			var count = 0;
 
