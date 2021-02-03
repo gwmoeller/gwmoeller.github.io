@@ -121,7 +121,7 @@ function start() {
 					pointer = indexList.indexOf(element.costs[i].item_id);
 
 					if(currTreasury[pointer] != undefined) {
-						if(currTreasury[pointer].count > element.costs[i].count) {
+						if(currTreasury[pointer].count >= element.costs[i].count) {
 							itemTemp += ("<div id=\"" + currTreasury[pointer].name + "\" class=\"card text-center bg-dark cust-card\" onclick=\"imageSearch('" + currTreasury[pointer].name + "')\"> <img src=\"" + currTreasury[pointer].icon + "\" class=\"card-img-top\" title=\"" + currTreasury[pointer].name + "\"> <div class=\"card-body\"><p class=\"card-text\">" + element.costs[i].count + "/" + element.costs[i].count + "</p></div></div>");
 						}
 						else {
@@ -131,7 +131,7 @@ function start() {
 					}
 					else if(element.costs[i].name == "Guild Favor") {
 						
-						if(guildFavor > element.costs[i].count) {
+						if(guildFavor >= element.costs[i].count) {
 							overFavor = element.costs[i].count;
 						}
 						else {
@@ -143,7 +143,7 @@ function start() {
 					}
 					else if(element.costs[i].name == "Aetherium") {
 
-						if(guildAeth > element.costs[i].count) {
+						if(guildAeth >= element.costs[i].count) {
 							overAeth = element.costs[i].count;
 						}
 						else {
