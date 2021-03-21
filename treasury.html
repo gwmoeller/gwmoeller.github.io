@@ -3,21 +3,21 @@
 		<meta char="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="../Guild_Wars_2/css/main.css">
 		<title>Treasury | Feeder Anonymous</title>
 		
 		<!-- 
-			Filename: index.html
-			Author: Enter Author
-			Topic: Enter Topic
-			Description: Enter Description
+			Filename: treasury.html
+			Author: Gage Moeller
+			Topic: Guild Treasury
+			Description: Show relevant information about the guild's treasury
 		-->
 
 	</head>
 
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-  			<a class="navbar-brand" href="index.html"><img src="img/fa-emb.png" style="width: 50px"></a>
+  			<a class="navbar-brand" href="index.html"><img src="../Guild_Wars_2/img/fa-emb.png" style="width: 50px"></a>
   			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     			<span class="navbar-toggler-icon"></span>
  			</button>
@@ -28,7 +28,7 @@
 	    				<a class="nav-link" href="members.html">Members</a>
 	    			</li>
 	    			<li class="nav-item">
-	    				<a class="nav-link" href="#">Gallery</a>
+	    				<a class="nav-link" href="gallery.html">Gallery</a>
 	    			</li>
 
 	      			<li class="nav-item dropdown">
@@ -54,7 +54,7 @@
 			<br>
 			<div class="row">
 				<div class="col-xl-4 col-lg-12">
-						<h3 class="treasury-header-cust">Guild Information</h3>
+						<h4 class="treasury-header-cust">Guild Information</h4>
 
 					<div class="block-cust-padding" id="block-cust">
 						<div id="guild-info"></div>
@@ -72,15 +72,49 @@
 
 			<div class="row">
 				<div class="col-xl col-lg-12">
-					<div class="treasury-header-cust">
-						<h3 style="display: inline-block;"class="">Available Guild Upgrades</h3>
+					<div class="treasury-header-cust treasury-media-cust">
+						<h4 style="display: inline-block;"class="">Search Guild Upgrades</h4>
 
 						<input onkeyup="searchLib(this)" class="item-search form-control mr-sm-2" style="float: right; display: inline-block;" type="text" name="search-2" placeholder="Item Search..." ariaLabel="Search">
 					</div>
 
 					<br>
 					<div id="search-result"></div>
-					<div style="height: 100%;" id="upgrade-list"></div>
+					<div style="height: 100%;" id="upgrade-list">
+						<div class="guild-arena">
+							<h4 class="treasury-header-cust">Guild Arena</h4>
+							<div id="arena-upg"></div>
+						</div>
+						<div class="guild-initiative">
+							<h4 class="treasury-header-cust">Guild Initiative</h4>
+							<div id="initiative-upg"></div>
+						</div>
+			
+						<div class="guild-market">
+							<h4 class="treasury-header-cust">Guild Market</h4>
+							<div id="market-upg"></div>
+						</div>
+			
+						<div class="guild-mine">
+							<h4 class="treasury-header-cust">Guild Mine</h4>
+							<div id="mine-upg"></div>
+						</div>
+			
+						<div class="guild-tavern">
+							<h4 class="treasury-header-cust">Guild Tavern</h4>
+							<div id="tavern-upg"></div>
+						</div>
+			
+						<div class="guild-workshop">
+							<h4 class="treasury-header-cust">Guild Workshop</h4>
+							<div id="workshop-upg"></div>
+						</div>
+			
+						<div class="guild-warroom">
+							<h4 class="treasury-header-cust">Guild War Room</h4>
+							<div id="warroom-upg"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 
