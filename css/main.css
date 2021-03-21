@@ -4,6 +4,10 @@ body, html {
 	margin: 0;
 }
 
+p, h5 {
+	color: white;
+}
+
 footer {
 	text-align: center;
 	color: white;
@@ -48,6 +52,18 @@ input:read-only {
 .form-control:focus {
 	background-color: #121212 !important;
 	border: solid 1px black;
+}
+
+.container {
+	color: white;
+}
+
+.col-center {
+	margin-top: 2%;
+}
+
+.col-center p  {
+	margin-left: 30%;
 }
 
 /* GENERAL CSS SHOULD BE PLACED ABOVE THIS POINT*/
@@ -151,8 +167,7 @@ input:read-only {
 }
 
 #block-cust h5 {
-	background-color: #111111;
-	width: 100%;
+	background-color: #111111
 	color: white;
 }
 
@@ -233,6 +248,21 @@ input[type=file] {
 	width: 100%;
 }
 
+.remainder {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+}
+
+.remainder {
+	background-color: rgba(0, 0, 0, .8);
+	width: 102%;
+}
+
 #block-cust {
 	border: 1px solid black;
 	border-radius: 5px;
@@ -248,11 +278,6 @@ input[type=file] {
 
 }
 
-.upgrade-block img {
-	width: 50px;
-	height: 50px;
-}
-
 #block-cust h5 {
 	background-color: #111111;
 }
@@ -263,7 +288,7 @@ input[type=file] {
 
 .item-search {
 	border-radius: 5px;
-	width: 30%;
+	width: 50%;
 	height: 40px;
 	padding: 10px;
 	background-color: #111111;
@@ -303,16 +328,20 @@ input:focus {
 	transition: opacity .25s ease-in-out;
 }
 
+.cust-card {
+}
+
 .card-img-top {
-	height: 60px;
-	width: 60px;
+	height: 45px;
+	width: 45px;
 	padding: 0px;
 }
 
 .card-text {
-	font-size: smaller;
+	font-size: x-small;
 	padding: 0px;
 	color: white;
+	overflow: hidden;
 }
 
 .card-body {
@@ -328,7 +357,7 @@ input:focus {
 	margin: 10px;
 	display: inline-block;
 	border: 1px solid black;
-	border-radius: 5px !important;
+	border-radius: 5px 0px 0px 0px !important;
 	box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.4);
 	background-color: #2b2b2b;
 }
