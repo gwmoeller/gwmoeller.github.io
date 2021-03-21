@@ -267,8 +267,6 @@ function buildLib() {
 		upgradeLib.push(k_array);
 		curr += 1;
 	}
-
-	console.log(upgradeLib)
 }
 
 /*
@@ -332,9 +330,22 @@ function filteredView(results, input) {
 	var tempUpgradeList = [];
 	var filterPointer = [];
 
+	
+
 	$.each(upgradeLib, function(index, element) {
-		tempUpgradeList.push(element[1])
+		if(element[1].includes("ready")) {
+			var start = element[1].indexOf("ready") - 1;
+			var end = element[1].length
+
+			var result = element[1].replace(element[1].substring(start, end), "");
+
+			tempUpgradeList.push(result);
+		}
+
+		tempUpgradeList.push(element[1]);
 	})
+
+	console.log(tempUpgradeList)
 
 	if(results.length == 0 && input == "") {
 		for(var i=0; i < tempUpgradeList.length; i++) {
@@ -342,9 +353,15 @@ function filteredView(results, input) {
 			$(r).show();
 		}
 	}
-	else{
+	else {
 		for(var i = 0; i < results.length; i++) {
 			var remove = tempUpgradeList.indexOf(results[i]);
+			
+			if(input == "ready") {
+				filterPointer.push(remove);
+				remove = remove - 1;
+			}
+			
 			filterPointer.push(remove);
 		}
 
@@ -355,6 +372,8 @@ function filteredView(results, input) {
 			}
 			else {
 				var r = document.getElementById(tempUpgradeList[i]);
+				console.log(r);
+
 				$(r).show();
 			}
 		}
