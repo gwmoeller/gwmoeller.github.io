@@ -99,8 +99,10 @@ body {
 	}
 
 	.img-blocks {
-		width: 100%;
+		width: 100% ;
 		border-right: none !important;
+		float: none !important;
+		padding: 0 !important;
 	}
 
 
@@ -178,16 +180,19 @@ body {
 }
 
 .img-blocks {
-	width: 100%;
+	width: 80%;
 	border-right: solid 4px black;
+	float: right;
+	padding-left: 20px;
+	background-color: #282828;
 }
 
 .block-text-cust {
-	padding-left: 33%;
 	height: 250px;
 	border-top: double 12px black;
 	border-bottom: double 12px black;
 	padding-top: 80px;
+	text-align: center;
 }
 
 footer {
@@ -539,10 +544,34 @@ footer p {
 
 /* START OF TP CALC */
 .history {
-	height: 450px;
+	height: 433px;
 	overflow-y: scroll;
 }
 
+.form-reset-cust {
+	width: 45%;
+	background-color: #000000;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	height: 40px;
+}
+
+.form-reset-cust:hover {
+	border: 1px solid #000000;
+	color: black;
+	background-color: white;
+}
+
+.clear-history {
+	width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+	.clear-history {
+		margin: 10px;
+	}
+}
 
 /* END OF TP CALC */
 
