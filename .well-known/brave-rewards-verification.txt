@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: gwmoeller.github.io
+Token: 1b3aebfd262c18f745ee6fef3de3b6923eaf78172c78a70df05db6b8d6ca920b
