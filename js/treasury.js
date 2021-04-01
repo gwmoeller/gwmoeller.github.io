@@ -6,8 +6,8 @@
 */
 
 var url = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/treasury?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313&v=latest";
-var url_2 = "https://gwmoeller.github.io/probotafessor/json/item_list.json"
-var url_3 = "https://gwmoeller.github.io/probotafessor/json/guild_upgrades_update.json";
+var url_2 = "https://gwmoeller.github.io/json/item_list.json"
+var url_3 = "https://gwmoeller.github.io/json/guild_upgrades_update.json";
 var url_4 = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313&v=latest"
 var url_5 = "https://api.guildwars2.com/v2/guild/32525C62-CE73-EA11-81AC-95DFE50946EB/upgrades?access_token=6C82128E-774C-714A-B5E5-0ED0ECD1660DC1A2435C-2735-45D8-9A54-B710D22AB313&v=latest"
 
