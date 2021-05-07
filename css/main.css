@@ -73,6 +73,16 @@ body {
 		top: 0;
 	}
 
+	.dropdown-menu{
+		-webkit-transition: all 1s;
+		display: none !important;
+	}
+
+	.show {
+		-webkit-transition: all 1s;
+		display: block !important;
+	}
+
 	.expander {
 		display: none;
 	}
@@ -89,9 +99,9 @@ body {
 	}
 
 	.hero-text {
+		padding-top: 10px;
 		margin-left: 0 !important;
 		border: none !important;
-		border-bottom: solid 4px black !important;
 	}
 
 	.dead-space {
@@ -103,6 +113,7 @@ body {
 		border-right: none !important;
 		float: none !important;
 		padding: 0 !important;
+		margin-bottom: 5% !important;
 	}
 
 
@@ -126,11 +137,13 @@ body {
 
 #first-table-block {
 	margin-top: 50px;
+	margin-left: 5%;
+	margin-right: 5%;	
 }
 
 .hero-text {
-	border-right: solid 4px black;
-	margin-left: 10%;
+	border-left: solid 4px black;
+	padding-left: 5%;
 }
 
 #first-block {
@@ -181,9 +194,9 @@ body {
 
 .img-blocks {
 	width: 80%;
-	border-right: solid 4px black;
-	float: right;
-	padding-left: 20px;
+	border-left: solid 4px black;
+	float: left;
+	padding-right: 20px;
 	background-color: #282828;
 }
 
