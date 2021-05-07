@@ -12,3 +12,10 @@ function dropCust() {
 		$(".dropdown .dropdown-menu").css({"-webkit-transition": "all 1s"})
 	}
 }
+
+function blurCust() {
+	var show = document.getElementsByClassName("dropdown-menu show");
+
+	$(".expander").css({"height": "0px", "transition": "1s"});
+	$(".dropdown .dropdown-menu").css({"-webkit-transition": "all 0.3s"})
+}
