@@ -47,19 +47,6 @@ body {
 	background-color: #000000; 
 }
 
-.dropdown .dropdown-menu {
-    -webkit-transition: all 1s;
-    max-height: 0;
-    display: block;
-    overflow: hidden;
-    opacity: 0;
-}
-
-.dropdown.show .dropdown-menu { /* For Bootstrap 4, use .dropdown.show instead of .dropdown.open */
-    max-height: 300px;
-    opacity: 1;
-}
-
 .dropdown-menu a {
 	color: white;
 }
@@ -67,26 +54,17 @@ body {
 .dropdown-item:focus {
 	background-color: #580000 !important;
 }
+@media only screen and (max-wdith: 1199px) {
+	.navbar-nav {
+		margin-bottom: 35px;
+	}
+}
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1000px) {
 	.navbar-nav {
 		top: 0;
 	}
-
-	.dropdown-menu{
-		-webkit-transition: all 1s;
-		display: none !important;
-	}
-
-	.show {
-		-webkit-transition: all 1s;
-		display: block !important;
-	}
-
-	.expander {
-		display: none;
-	}
-
+	
 	.tag-line-cust {
 		text-align: center;
 		margin-top: 5% !important;
@@ -130,8 +108,6 @@ body {
 /* END OF NAVBAR CSS */
 
 .expander {
-	height: 0px;
-	transition: height 0.3s;
 	background-color: black;
 }
 
