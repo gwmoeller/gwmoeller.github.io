@@ -1,21 +1,24 @@
-
-function dropCust() {
-	var show = document.getElementsByClassName("dropdown-menu show");
-	console.log(show.length)
 	
-	if(show.length > 0) {
-		$(".expander").css({"height": "0px", "transition": "1s"});
-		$(".dropdown .dropdown-menu").css({"-webkit-transition": "all 0.3s"})
-	}
-	else {
-		$(".expander").css({"height": "100px", "transition": "0.3s"});
-		$(".dropdown .dropdown-menu").css({"-webkit-transition": "all 1s"})
+var expander = document.getElementsByClassName("expander");
+var navlink = document.getElementsByClassName("dropdown-toggle");
+
+function expandDrop() {
+	
+	var check = (navlink[0].ariaExpanded);
+	console.log(check)
+
+	switch(check) {
+		case "false":
+			$(expander).css("height", "100px");
+			break;
+		case "true":
+			$(expander).css("height", "0px");
 	}
 }
 
-function blurCust() {
-	var show = document.getElementsByClassName("dropdown-menu show");
-
-	$(".expander").css({"height": "0px", "transition": "1s"});
-	$(".dropdown .dropdown-menu").css({"-webkit-transition": "all 0.3s"})
+function closeDrop() {
+	$(expander).css("height", "0px");
 }
+
+document.getElementById("navbarDropdown").addEventListener("click", expandDrop);
+window.addEventListener("click", closeDrop)
