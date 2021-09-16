@@ -178,6 +178,10 @@ body {
 	border: 1px solid black;
 }
 
+#copy-button:focus {
+	outline: none;
+}
+
 .daily {
 	background-image:  linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
 	box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.6);
