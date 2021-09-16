@@ -115,12 +115,44 @@ body {
 }
 
 .banner {
-	background-color:  grey;
-	height: 800px;
+	box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.6);
+	height: 800px !important; 
+}
+
+@media only screen and (max-width:  750px) {
+	.banner {
+		height: 200px !important;
+		margin-bottom: 10px;
+	}
 }
 
 .zedrak {
 	background-image: url("img/profile_pic/gw129.jpg");
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: 45%;
+	background-size: cover;
+	width: 100%;
+}
+
+.zethius {
+	background-image: url("img/profile_pic/gw133.png");
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: 43%;
+	background-size: cover;
+}
+
+.kuma {
+	background-image: url("img/profile_pic/gw033.jpg");
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+}
+
+.syr {
+	background-image: url("img/profile_pic/gw025.png");
 	height: 100%;
 	background-repeat: no-repeat;
 	background-position: 45%;
