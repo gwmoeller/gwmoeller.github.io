@@ -22,12 +22,13 @@ function getDaily() {
 				if(temp != "") {
 					$.getJSON(achievejson + temp).done(function(data) {
 						setDaily(index, data)
+						console.log(index, data)
 					});
 				}
 			});
 		});
 
-	getPactAgent();
+	setPactAgent();
 }
 
 /*
@@ -53,7 +54,9 @@ function setDaily(type, array) {
 }
 
 function getPactAgent() {
-	//decloration of const variables for pact merchants
+	merchLoc = ""
+
+	//declaration of const variables for pact merchants
 	arrays = [
 		wastes = ["[&BIkHAAA=]", "[&BH8HAAA=]", "[&BH4HAAA=]", "[&BKsHAAA=]", "[&BJQHAAA=]", "[&BH8HAAA=]", "[&BIkHAAA=]"],
 		jungle = ["[&BEwDAAA=]", "[&BEgAAAA=]", "[&BMIBAAA=]", "[&BE8AAAA=]", "[&BE8AAAA=]", "[&BLkCAAA=]", "[&BDoBAAA=]" ],
@@ -63,8 +66,6 @@ function getPactAgent() {
 		ascalon = ["[&BA8CAAA=]", "[&BIMBAAA=]", "[&BPEBAAA=]", "[&BOcBAAA=]", "[&BNMAAAA=]", "[&BBABAAA=]", "[&BCECAAA=]"],
 	];
 
-	merchLoc = "<h4>Pact Supply Network Agents</h4> <p>";
-	
 	//grabs current day of the week
 	var d = new Date();
 	var n = d.getDay();
@@ -73,10 +74,14 @@ function getPactAgent() {
 		merchLoc += element[n-1] + " ";
 	});
 
-	$('.pact-merchant').html(merchLoc + "</p>");
+	return merchLoc;
 }
 
-counter = 0;
+function setPactAgent() {
+	locales = getPactAgent();
+	fmerch = "<h4>Pact Supply Network Agents</h4> <p id=\"locale\">" + locales;
+	$('.pact-merchant').html(fmerch + "</p>");
+}
 
 // turns data into a string and passes it back to be implemented
 function stringifyDaily(type, array) {
@@ -94,6 +99,11 @@ function stringifyDaily(type, array) {
 	});
 
 	return string;
+}
+
+function copyFunction(string) {
+	locales = getPactAgent();
+	navigator.clipboard.writeText(locales)
 }
 
 window.onload = getDaily();
