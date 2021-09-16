@@ -21,8 +21,7 @@ function getDaily() {
 				//after grab is put together send it to setDaily()
 				if(temp != "") {
 					$.getJSON(achievejson + temp).done(function(data) {
-						setDaily(index, data)
-						console.log(index, data)
+						setDaily(index, data);
 					});
 				}
 			});
@@ -103,7 +102,8 @@ function stringifyDaily(type, array) {
 
 function copyFunction(string) {
 	locales = getPactAgent();
-	navigator.clipboard.writeText(locales)
+	navigator.clipboard.writeText(locales);
+	alert("Pact Network Supply Agent locations copied.");
 }
 
 window.onload = getDaily();
