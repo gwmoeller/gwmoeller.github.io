@@ -80,6 +80,8 @@ function getTotal() {
 	var listing = (selling * .05);
 	var tax = (selling * .1);
 	var total= Math.round(((selling - listing - tax) * currency[7]) - (buying * currency[3]));
+	
+	breakEven(buying)
 
 	/* Converts currency back to desired format. (i.e. gold, silver, and copper) */
 	while( total != 0 ) {
@@ -109,7 +111,7 @@ function getTotal() {
 		copper = 0;
 	}
 	
-	showOutput(gold, silver, copper);
+	showOutput(gold, silver, copper); 
 }
 
 /* Checks for any errors and then feeds output to form */
@@ -173,6 +175,44 @@ function showHistory() {
 function clearHistory() {
 	hString = "";
 	document.getElementById('history').innerHTML = "";
+}
+
+function breakEven(num) {
+	b = num;
+
+	even = b/.85;
+
+	/* Converts currency back to desired format. (i.e. gold, silver, and copper) */
+	while( even != 0 ) {
+		if(even >= 10000 || even <= -10000) {
+			var gold = even / 10000;
+			even = even % 10000;
+		}
+		else if(even >= 100 || even <= -100) {
+			var silver = even / 100;
+			even = even % 100;
+		}
+		else {
+			var copper = even;
+			even = 0;
+		}
+	}
+
+	if(gold == undefined) {
+		gold = 0;
+	}
+	
+	if(silver == undefined) {
+		silver = 0;
+	}
+	
+	if(copper == undefined) {
+		copper = 0;
+	}
+
+	document.getElementById('brgold').value = Math.floor(gold);
+	document.getElementById('brsilver').value = Math.floor(silver);
+	document.getElementById('brcopper').value = Math.floor(copper);
 }
 
 /* event trigger */
