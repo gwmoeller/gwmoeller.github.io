@@ -116,7 +116,12 @@ body {
 
 .banner {
 	box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.6);
-	height: 800px !important; 
+	height: 800px !important;
+	transition:  transform .2s;
+}
+
+.banner:hover {
+	transform:  scale(1.05);
 }
 
 @media only screen and (max-width:  750px) {
@@ -157,6 +162,20 @@ body {
 	background-repeat: no-repeat;
 	background-position: 45%;
 	background-size: cover;
+}
+
+#copy-button {
+	width: 100%;
+	background-color: black;
+	color: white;
+	border: solid 1px black;
+	box-shadow: 6px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+#copy-button:hover {
+	color: black;
+	background-color: white;
+	border: 1px solid black;
 }
 
 .daily {
