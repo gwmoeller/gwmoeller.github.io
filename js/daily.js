@@ -14,7 +14,9 @@ function getDaily() {
 				temp = ""
 				//grabs element ids to be used for lookup in secondary url
 				$.each(element, function(i, e) {
-					temp += e.id + ","
+					if(e.level.max == 80) {
+						temp += e.id + ","
+					}
 				})
 
 				//checks to make sure temp is not empty then concatenates the second url with the ids list in temp
