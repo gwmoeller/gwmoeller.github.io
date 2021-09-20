@@ -140,7 +140,7 @@ body {
 	height: 100%;
 }
 
-.overlay-text a{
+.overlay-text {
 	text-decoration: none;
 	color: white;
 	font-size: 20px;
@@ -160,7 +160,7 @@ body {
 }
 
 @media only screen and (max-width: 1360px) {
-		.overlay-text a{
+		.overlay-text {
 		text-decoration: none;
 		color: white;
 		font-size: 20px;
