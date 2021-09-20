@@ -68,6 +68,10 @@ function getPactAgent() {
 	//grabs current day of the week
 	var d = new Date();
 	var n = d.getDay();
+	
+	if(n == 0) {
+		n = 7;
+	}
 
 	$.each(arrays, function(index, element) {
 		merchLoc += element[n-1] + " ";
