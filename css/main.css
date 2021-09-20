@@ -117,17 +117,59 @@ body {
 .banner {
 	box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.6);
 	height: 800px !important;
-	transition:  transform .2s;
+	transition:  transform .5s;
 }
 
 .banner:hover {
 	transform:  scale(1.05);
 }
 
+.overlay {
+	position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .8);
+  overflow: hidden;
+  height:0;
+  transition: .5s ease;
+}
+
+.banner:hover .overlay {
+	bottom: 0;
+	height: 100%;
+}
+
+.overlay-text a{
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: ranslate(-50%, -50%);
+	white-space: nowrap;
+}
+
 @media only screen and (max-width:  750px) {
 	.banner {
 		height: 200px !important;
 		margin-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: 1360px) {
+		.overlay-text a{
+		text-decoration: none;
+		color: white;
+		font-size: 20px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: ranslate(-50%, -50%);
+		white-space: pre-wrap;
 	}
 }
 
@@ -158,6 +200,14 @@ body {
 
 .syr {
 	background-image: url("img/profile_pic/gw025.png");
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: 45%;
+	background-size: cover;
+}
+
+.slag {
+	background-image: url("img/profile_pic/gw01.png");
 	height: 100%;
 	background-repeat: no-repeat;
 	background-position: 45%;
