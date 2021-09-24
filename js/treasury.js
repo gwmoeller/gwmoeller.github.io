@@ -52,21 +52,22 @@ function start() {
 			$.each(data3[0], function(index,element) {
 				var check = true;
 
-				if(element.costs[0] != undefined && data5[0].includes(element.id) == false && element.costs[0] != 0 && element.build_time == 0 && element.required_level <= guildLvl) {
-					
+				if(element.costs[0] != undefined && data5[0].includes(element.id) == false && element.costs[0] != 0 && element.build_time == 0 && element.required_level <= guildLvl) {				
 					if(element.costs[0].name == "Guild Favor") {
 						
 						for(var i = 0; i < element.prerequisites.length; i++) {
 							
 							if(data5[0].includes(element.prerequisites[i]) && element.prerequisites[0] != 240) {
+								
 							}
 							else {
 								check = false;
-							}
+							}		
 						}
 
 						if(check == true) {
 							upgradeIds.push(element.id)
+
 							/* Creates a list of item ids requested by the filtered down guild upgrades*/
 							for(var i = 0; i < element.costs.length; i++) {
 								if (!(itemIds.includes(element.costs[i].item_id)) && element.costs[i].item_id != undefined && element.costs[i].item_id != 70701) {
@@ -79,7 +80,7 @@ function start() {
 					}
 				}
 			})
-
+			
 			var wrongPull = [];
 			var currTreasury = [];
 
@@ -172,6 +173,7 @@ function start() {
 				// Divides upgrades into their respective merchant
 				for(var i=0; i <= merch.length -1; i++) {
 					for(var y=0; y <= merch[i].length - 1; y++) {
+
 						if(element.name.includes(merch[i][y])) {
 							switch(merchStr[i]) {
 								case "arena-upg":
@@ -237,11 +239,13 @@ function start() {
 
 function removeEmpty() {
 	var groups = document.getElementsByClassName("treasury-sub-header-cust");
-	console.log(groups)
 
 	for(var i=0; i < groups.length; i++) {
 		if(groups[i].nextElementSibling.outerText == "") {
 			groups[i].style.display = "none";
+		}
+		else {
+			groups[i].style.display = "";
 		}
 	}
 }
@@ -339,8 +343,6 @@ function filteredView(results, input) {
 	var tempUpgradeList = [];
 	var filterPointer = [];
 
-	
-
 	$.each(upgradeLib, function(index, element) {
 		if(element[1].includes("ready")) {
 			var start = element[1].indexOf("ready") - 1;
@@ -353,8 +355,6 @@ function filteredView(results, input) {
 
 		tempUpgradeList.push(element[1]);
 	})
-
-	console.log(tempUpgradeList)
 
 	if(results.length == 0 && input == "") {
 		for(var i=0; i < tempUpgradeList.length; i++) {
@@ -381,12 +381,13 @@ function filteredView(results, input) {
 			}
 			else {
 				var r = document.getElementById(tempUpgradeList[i]);
-				console.log(r);
 
 				$(r).show();
 			}
 		}
 	}
+
+	removeEmpty();
 }
 
 //
