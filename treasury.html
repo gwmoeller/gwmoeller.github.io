@@ -62,9 +62,19 @@
 				<div id="treasury-list"></div>
 			</div>
 
-			<h2 class="treasury-header-cust">Upgrades Available</h2>
+			<div class="treasury-header-cust">
+				<div class="row no-gutters">
+					<div class="col-lg-4 col-md-12">
+						<h2 id="search-upgrade">Upgrades Available</h2>
+					</div>
+					<div class="col-lg-8 col-md-12">
+						<input id="search-upgrade" onkeyup="searchLib(this)" class="form-control form-control-color" type="text" name="search-2" placeholder="Search for an item or upgrade name..." ariaLabel="Search">
+					</div>
+				</div>
+			</div>
 
-			<div style="height: 100%;" id="upgrade-list">
+
+			<div style="height: 100%;" id="upgrade-block">
 				<div class="guild-arena">
 					<h4 class="treasury-sub-header-cust">~ Guild Arena ~</h4>
 					<div id="arena-upg"></div>
