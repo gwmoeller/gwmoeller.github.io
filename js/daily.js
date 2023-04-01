@@ -60,7 +60,7 @@ function getPactAgent() {
 	//declaration of const variables for pact merchants
 	arrays = [
 		wastes = ["[&BIcHAAA=]", "[&BH8HAAA=]", "[&BH4HAAA=]", "[&BKsHAAA=]", "[&BJQHAAA=]", "[&BH8HAAA=]", "[&BIkHAAA=]"],
-		jungle = ["[&BEwDAAA=]", "[&BEgAAAA=]", "[&BMIBAAA=]", "[&BE8AAAA=]", "[&BE8AAAA=]", "[&BLkCAAA=]", "[&BDoBAAA=]" ],
+		jungle = ["[&BEwDAAA=]", "[&BEgAAAA=]", "[&BMIBAAA=]", "[&BE8AAAA=]", "[&BMMCAAA=]", "[&BLkCAAA=]", "[&BDoBAAA=]" ],
 		orr = ["[&BNIEAAA=]", "[&BKgCAAA=]", "[&BP0CAAA=]", "[&BP0DAAA=]", "[&BJsCAAA=]", "[&BBEDAAA=]", "[&BO4CAAA=]"],
 		kryta = ["[&BKYBAAA=]", "[&BBkAAAA=]", "[&BKYAAAA=]", "[&BIMAAAA=]", "[&BNUGAAA=]", "[&BJIBAAA=]", "[&BC0AAAA=]"],
 		shiverpeaks = ["[&BIMCAAA=]", "[&BGQCAAA=]", "[&BDgDAAA=]", "[&BF0GAAA=]", "[&BHsBAAA=]", "[&BEICAAA=]", "[&BIUCAAA=]"],
